@@ -30,12 +30,12 @@ namespace MSDemo
             {
                 if (Pass.Text == RePass.Text)
                 {
-                    if (Regex.IsMatch(Pass.Text, "(?.=A-Z)(?.=a-z)(?.=0-9)(?.=!@#$%^)(A-Za-z0-9!@#$%^){8,})"))
+                    if (Regex.IsMatch(Pass.Text, "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^])([A-Za-z0-9!@#$%^]){8,}$"))
                     {
                         new MarathonDemoDataSetTableAdapters.UserTableAdapter().Insert(Mail.Text, Pass.Text, Name.Text, LasTName.Text, "R");
                         new MarathonDemoDataSetTableAdapters.RunnerTableAdapter().Insert(Mail.Text, Gender.SelectedItem.ToString(), dateOfB.SelectedDate, Country.SelectedValuePath);
 
-
+                        MessageBox.Show("Выполнено! Для входа авторизируйтесь.");
                     }
                     else
                     {
@@ -49,7 +49,7 @@ namespace MSDemo
             }
             catch
             {
-
+                MessageBox.Show("Не выполнена!");
             }
         }
 

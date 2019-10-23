@@ -1,0 +1,30 @@
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\bin\Debug\MSDemo.exe
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\bin\Debug\MSDemo.pdb
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\MainWindow.baml
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\App.g.cs
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\MSDemo_MarkupCompile.cache
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\MSDemo.g.resources
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\MSDemo.Properties.Resources.resources
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\MSDemo.csproj.GenerateResource.Cache
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\MSDemo.exe
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\MSDemo.pdb
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\bin\Debug\MSDemo.exe.config
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\Marayhon skills 2017 - login.baml
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\Wannarun.baml
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\Marayhon skills 2017 - login.g.cs
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\Wannarun.g.cs
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\Spons.baml
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\Spons.g.cs
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\Marathon Skills 2019 - charity.baml
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\Marathon Skills 2019 - charity.g.cs
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\CharityShow.baml
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\CharityShow.g.cs
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\CharityList.baml
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\find out more information.baml
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\CharityList.g.cs
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\find out more information.g.cs
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\ForCharity.baml
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\ForCharity.g.cs
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\Registration.baml
+C:\Users\Ellie\Desktop\4 курс\Подготовка к демо\task-01\MSDemo\MSDemo\obj\x86\Debug\Registration.g.cs

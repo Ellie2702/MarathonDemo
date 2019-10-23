@@ -1,0 +1,22 @@
+﻿<Window x:Class="MSDemo.CharityShow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Charity" Height="400" Width="800">
+    <Grid Loaded="Grid_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="66*" />
+            <RowDefinition Height="137*" />
+            <RowDefinition Height="158*" />
+        </Grid.RowDefinitions>
+
+        <Label Name="FondName" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontFamily="Arial" FontSize="30" Foreground="#FF454141"/>
+        <Image Name="FondLogo" Grid.Row="1" Grid.ColumnSpan="2" Margin="120, 20" Stretch="Uniform" />
+        <Label Name="Discript" Grid.Row="2" Grid.ColumnSpan="2" Margin="20" />
+        
+    </Grid>
+</Window>

@@ -1,0 +1,36 @@
+﻿<Window x:Class="MSDemo.Marathon_Skills_2019___charity"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Marathon skills 2019-charity" Height="750" Width="1125" FontFamily="Arial" FontSize="24" WindowStartupLocation="CenterScreen">
+    <Grid Loaded="Grid_Loaded">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="136*" />
+            <RowDefinition Height="136*" />
+            <RowDefinition Height="136*" />
+            <RowDefinition Height="136*" />
+            <RowDefinition Height="212*" />
+            <RowDefinition Height="58*" />
+        </Grid.RowDefinitions>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle  Grid.Row="0" Grid.ColumnSpan="2" Fill="Gray"/>
+        <Label Content="MARATHON SKILLS 2017" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontSize="20" Foreground="White" Margin="189,-24,16,25" />
+
+        <Button Content="Назад" Name="BT0" Margin="31,12,354,72" FontFamily="Arial" FontSize="20" Click="BT0_Click" />
+
+        <Label Content="Спасибо за вашу поддержку" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontFamily="Arial" FontSize="30" Foreground="#FF454141" />
+        <Label Name="RunName" Content="Имя бегуна" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="30" Foreground="#FF454141" Margin="0,23,0,96" Grid.RowSpan="2" Width="1103" />
+        <Label Name="Org" Content="Организация" Grid.Row="2" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="30" Foreground="#FF454141" Margin="0,24,0,162"  Grid.RowSpan="3" Width="1091" />
+        <Label Name="Coas"  Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Arial" FontSize="50" Foreground="#FF454141" Margin="12,0,12,150" Grid.RowSpan="2" Width="1079" Height="118" VerticalAlignment="Bottom" />
+
+        <Rectangle  Grid.Row="10" Grid.ColumnSpan="2" Fill="Gray"/>
+
+        <Label Name="LB0" Content="WTF" HorizontalAlignment="Center" Grid.Row="10" Grid.ColumnSpan="2" FontFamily="Arial" FontSize="30" Foreground="White" Loaded="LB0_Loaded" />
+    </Grid>
+</Window>

@@ -15431,11 +15431,21 @@ SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM Runner WHERE (Runn
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM dbo.Runner";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "INSERT INTO Runner\r\n                  (Email, Gender, DateOfBirth, CountryCode)\r\n" +
+                "VALUES (@Email,@Gender,@DateOfBirth,@CountryCode); \r\nSELECT RunnerId, Email, Gen" +
+                "der, DateOfBirth, CountryCode FROM Runner WHERE (RunnerId = SCOPE_IDENTITY())";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfBirth", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CountryCode", global::System.Data.SqlDbType.NChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "CountryCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15663,6 +15673,53 @@ SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM Runner WHERE (Runn
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string Email, string Gender, global::System.Nullable<global::System.DateTime> DateOfBirth, string CountryCode, int Original_RunnerId, string Original_Email, string Original_Gender, global::System.Nullable<global::System.DateTime> Original_DateOfBirth, string Original_CountryCode) {
             return this.Update(Email, Gender, DateOfBirth, CountryCode, Original_RunnerId, Original_Email, Original_Gender, Original_DateOfBirth, Original_CountryCode, Original_RunnerId);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(string Email, string Gender, global::System.Nullable<global::System.DateTime> DateOfBirth, string CountryCode) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Email));
+            }
+            if ((Gender == null)) {
+                throw new global::System.ArgumentNullException("Gender");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Gender));
+            }
+            if ((DateOfBirth.HasValue == true)) {
+                command.Parameters[2].Value = ((System.DateTime)(DateOfBirth.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((CountryCode == null)) {
+                throw new global::System.ArgumentNullException("CountryCode");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(CountryCode));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

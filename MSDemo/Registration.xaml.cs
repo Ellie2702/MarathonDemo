@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace MSDemo
 {
@@ -32,8 +33,9 @@ namespace MSDemo
                 {
                     if (Regex.IsMatch(Pass.Text, "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^])([A-Za-z0-9!@#$%^]){8,}$"))
                     {
+
                         new MarathonDemoDataSetTableAdapters.UserTableAdapter().Insert(Mail.Text, Pass.Text, Name.Text, LasTName.Text, "R");
-                        new MarathonDemoDataSetTableAdapters.RunnerTableAdapter().Insert(Mail.Text, Gender.SelectedItem.ToString(), dateOfB.SelectedDate, Country.SelectedValuePath);
+                        new MarathonDemoDataSetTableAdapters.RunnerTableAdapter().InsertQuery(Mail.Text, Gender.Text, (DateTime)dateBD.SelectedDate, Country.SelectedValue.ToString());    
 
                         MessageBox.Show("Выполнено! Для входа авторизируйтесь.");
                     }
@@ -47,9 +49,10 @@ namespace MSDemo
                     MessageBox.Show("Пароли не совпадают, повторите попытку");
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Не выполнена!");
+                MessageBox.Show(ex.Message);
+               
             }
         }
 

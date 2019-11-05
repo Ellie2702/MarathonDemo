@@ -4796,6 +4796,8 @@ namespace MSDemo {
             
             private global::System.Data.DataColumn columnCountryCode;
             
+            private global::System.Data.DataColumn columnPhone;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RunnerDataTable() {
@@ -4871,6 +4873,14 @@ namespace MSDemo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PhoneColumn {
+                get {
+                    return this.columnPhone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4906,14 +4916,15 @@ namespace MSDemo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RunnerRow AddRunnerRow(UserRow parentUserRowByFK__Runner__Email__1B0907CE, GenderRow parentGenderRowByFK__Runner__Gender__1BFD2C07, System.DateTime DateOfBirth, CountryRow parentCountryRowByFK__Runner__CountryC__1CF15040) {
+            public RunnerRow AddRunnerRow(UserRow parentUserRowByFK__Runner__Email__1B0907CE, GenderRow parentGenderRowByFK__Runner__Gender__1BFD2C07, System.DateTime DateOfBirth, CountryRow parentCountryRowByFK__Runner__CountryC__1CF15040, string Phone) {
                 RunnerRow rowRunnerRow = ((RunnerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
                         DateOfBirth,
-                        null};
+                        null,
+                        Phone};
                 if ((parentUserRowByFK__Runner__Email__1B0907CE != null)) {
                     columnValuesArray[1] = parentUserRowByFK__Runner__Email__1B0907CE[0];
                 }
@@ -4957,6 +4968,7 @@ namespace MSDemo {
                 this.columnGender = base.Columns["Gender"];
                 this.columnDateOfBirth = base.Columns["DateOfBirth"];
                 this.columnCountryCode = base.Columns["CountryCode"];
+                this.columnPhone = base.Columns["Phone"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4972,6 +4984,8 @@ namespace MSDemo {
                 base.Columns.Add(this.columnDateOfBirth);
                 this.columnCountryCode = new global::System.Data.DataColumn("CountryCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCountryCode);
+                this.columnPhone = new global::System.Data.DataColumn("Phone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPhone);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRunnerId}, true));
                 this.columnRunnerId.AutoIncrement = true;
@@ -4986,6 +5000,7 @@ namespace MSDemo {
                 this.columnGender.MaxLength = 10;
                 this.columnCountryCode.AllowDBNull = false;
                 this.columnCountryCode.MaxLength = 3;
+                this.columnPhone.MaxLength = 250;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8920,6 +8935,22 @@ namespace MSDemo {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Phone {
+                get {
+                    try {
+                        return ((string)(this[this.tableRunner.PhoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'Runner\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRunner.PhoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CountryRow CountryRow {
                 get {
                     return ((CountryRow)(this.GetParentRow(this.Table.ParentRelations["FK__Runner__CountryC__1CF15040"])));
@@ -8961,6 +8992,18 @@ namespace MSDemo {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDateOfBirthNull() {
                 this[this.tableRunner.DateOfBirthColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPhoneNull() {
+                return this.IsNull(this.tableRunner.PhoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPhoneNull() {
+                this[this.tableRunner.PhoneColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15382,10 +15425,11 @@ SELECT RegistrationStatusId, RegistrationStatus FROM RegistrationStatus WHERE (R
             tableMapping.ColumnMappings.Add("Gender", "Gender");
             tableMapping.ColumnMappings.Add("DateOfBirth", "DateOfBirth");
             tableMapping.ColumnMappings.Add("CountryCode", "CountryCode");
+            tableMapping.ColumnMappings.Add("Phone", "Phone");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Runner] WHERE (([RunnerId] = @Original_RunnerId) AND ([Email] = @Original_Email) AND ([Gender] = @Original_Gender) AND ((@IsNull_DateOfBirth = 1 AND [DateOfBirth] IS NULL) OR ([DateOfBirth] = @Original_DateOfBirth)) AND ([CountryCode] = @Original_CountryCode))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Runner] WHERE (([RunnerId] = @Original_RunnerId) AND ([Email] = @Original_Email) AND ([Gender] = @Original_Gender) AND ((@IsNull_DateOfBirth = 1 AND [DateOfBirth] IS NULL) OR ([DateOfBirth] = @Original_DateOfBirth)) AND ([CountryCode] = @Original_CountryCode) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RunnerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RunnerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -15393,31 +15437,38 @@ SELECT RegistrationStatusId, RegistrationStatus FROM RegistrationStatus WHERE (R
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateOfBirth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateOfBirth", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CountryCode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountryCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Phone", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Runner] ([Email], [Gender], [DateOfBirth], [CountryCode]) VALU" +
-                "ES (@Email, @Gender, @DateOfBirth, @CountryCode);\r\nSELECT RunnerId, Email, Gende" +
-                "r, DateOfBirth, CountryCode FROM Runner WHERE (RunnerId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Runner] ([Email], [Gender], [DateOfBirth], [CountryCode], [Phone]) V" +
+                "ALUES (@Email, @Gender, @DateOfBirth, @CountryCode, @Phone);\r\nSELECT RunnerId, E" +
+                "mail, Gender, DateOfBirth, CountryCode, Phone FROM Runner WHERE (RunnerId = SCOP" +
+                "E_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfBirth", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CountryCode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountryCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Runner] SET [Email] = @Email, [Gender] = @Gender, [DateOfBirth] = @DateOfBirth, [CountryCode] = @CountryCode WHERE (([RunnerId] = @Original_RunnerId) AND ([Email] = @Original_Email) AND ([Gender] = @Original_Gender) AND ((@IsNull_DateOfBirth = 1 AND [DateOfBirth] IS NULL) OR ([DateOfBirth] = @Original_DateOfBirth)) AND ([CountryCode] = @Original_CountryCode));
-SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM Runner WHERE (RunnerId = @RunnerId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Runner] SET [Email] = @Email, [Gender] = @Gender, [DateOfBirth] = @DateOfBirth, [CountryCode] = @CountryCode, [Phone] = @Phone WHERE (([RunnerId] = @Original_RunnerId) AND ([Email] = @Original_Email) AND ([Gender] = @Original_Gender) AND ((@IsNull_DateOfBirth = 1 AND [DateOfBirth] IS NULL) OR ([DateOfBirth] = @Original_DateOfBirth)) AND ([CountryCode] = @Original_CountryCode) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)));
+SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode, Phone FROM Runner WHERE (RunnerId = @RunnerId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateOfBirth", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CountryCode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountryCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RunnerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RunnerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DateOfBirth", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateOfBirth", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateOfBirth", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CountryCode", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountryCode", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Phone", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RunnerId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RunnerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -15434,7 +15485,7 @@ SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM Runner WHERE (Runn
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM dbo.Runner";
+            this._commandCollection[0].CommandText = "SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode, Phone\r\nFROM     Runner";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -15505,7 +15556,7 @@ SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM Runner WHERE (Runn
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_RunnerId, string Original_Email, string Original_Gender, global::System.Nullable<global::System.DateTime> Original_DateOfBirth, string Original_CountryCode) {
+        public virtual int Delete(int Original_RunnerId, string Original_Email, string Original_Gender, global::System.Nullable<global::System.DateTime> Original_DateOfBirth, string Original_CountryCode, string Original_Phone) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RunnerId));
             if ((Original_Email == null)) {
                 throw new global::System.ArgumentNullException("Original_Email");
@@ -15533,6 +15584,14 @@ SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM Runner WHERE (Runn
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_CountryCode));
             }
+            if ((Original_Phone == null)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Phone));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -15553,7 +15612,7 @@ SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM Runner WHERE (Runn
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Email, string Gender, global::System.Nullable<global::System.DateTime> DateOfBirth, string CountryCode) {
+        public virtual int Insert(string Email, string Gender, global::System.Nullable<global::System.DateTime> DateOfBirth, string CountryCode, string Phone) {
             if ((Email == null)) {
                 throw new global::System.ArgumentNullException("Email");
             }
@@ -15578,6 +15637,12 @@ SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM Runner WHERE (Runn
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(CountryCode));
             }
+            if ((Phone == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Phone));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -15598,7 +15663,7 @@ SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM Runner WHERE (Runn
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Email, string Gender, global::System.Nullable<global::System.DateTime> DateOfBirth, string CountryCode, int Original_RunnerId, string Original_Email, string Original_Gender, global::System.Nullable<global::System.DateTime> Original_DateOfBirth, string Original_CountryCode, int RunnerId) {
+        public virtual int Update(string Email, string Gender, global::System.Nullable<global::System.DateTime> DateOfBirth, string CountryCode, string Phone, int Original_RunnerId, string Original_Email, string Original_Gender, global::System.Nullable<global::System.DateTime> Original_DateOfBirth, string Original_CountryCode, string Original_Phone, int RunnerId) {
             if ((Email == null)) {
                 throw new global::System.ArgumentNullException("Email");
             }
@@ -15623,34 +15688,48 @@ SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM Runner WHERE (Runn
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(CountryCode));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_RunnerId));
+            if ((Phone == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Phone));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_RunnerId));
             if ((Original_Email == null)) {
                 throw new global::System.ArgumentNullException("Original_Email");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Email));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Email));
             }
             if ((Original_Gender == null)) {
                 throw new global::System.ArgumentNullException("Original_Gender");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Gender));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Gender));
             }
             if ((Original_DateOfBirth.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_DateOfBirth.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_DateOfBirth.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_CountryCode == null)) {
                 throw new global::System.ArgumentNullException("Original_CountryCode");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_CountryCode));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_CountryCode));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(RunnerId));
+            if ((Original_Phone == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Phone));
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(RunnerId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -15671,8 +15750,8 @@ SELECT RunnerId, Email, Gender, DateOfBirth, CountryCode FROM Runner WHERE (Runn
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Email, string Gender, global::System.Nullable<global::System.DateTime> DateOfBirth, string CountryCode, int Original_RunnerId, string Original_Email, string Original_Gender, global::System.Nullable<global::System.DateTime> Original_DateOfBirth, string Original_CountryCode) {
-            return this.Update(Email, Gender, DateOfBirth, CountryCode, Original_RunnerId, Original_Email, Original_Gender, Original_DateOfBirth, Original_CountryCode, Original_RunnerId);
+        public virtual int Update(string Email, string Gender, global::System.Nullable<global::System.DateTime> DateOfBirth, string CountryCode, string Phone, int Original_RunnerId, string Original_Email, string Original_Gender, global::System.Nullable<global::System.DateTime> Original_DateOfBirth, string Original_CountryCode, string Original_Phone) {
+            return this.Update(Email, Gender, DateOfBirth, CountryCode, Phone, Original_RunnerId, Original_Email, Original_Gender, Original_DateOfBirth, Original_CountryCode, Original_Phone, Original_RunnerId);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

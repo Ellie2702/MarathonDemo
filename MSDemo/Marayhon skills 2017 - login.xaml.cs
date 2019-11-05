@@ -22,5 +22,31 @@ namespace MSDemo
         {
             InitializeComponent();
         }
+
+        private void BT0_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var data = new MarathonDemoDataSetTableAdapters.UserTableAdapter().GetData().Where(p => p.Email == TB0.Text && p.Password == TB1.Text).ElementAt(0);
+                switch (data.RoleId)
+                {
+                    case "A":
+                        break;
+
+                    case "C":
+                        break;
+
+                    case "R":
+                        break;
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Логин или пароль неправильные");
+            }
+        }
+
+
     }
 }

@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using Microsoft.Win32;
+using System.IO;
 
 namespace MSDemo
 {
@@ -25,6 +27,8 @@ namespace MSDemo
             InitializeComponent();
         }
 
+        byte[] arr;
+
         private void Reg_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -35,8 +39,14 @@ namespace MSDemo
                     {
 
                         new MarathonDemoDataSetTableAdapters.UserTableAdapter().Insert(Mail.Text, Pass.Text, Name.Text, LasTName.Text, "R");
-                        new MarathonDemoDataSetTableAdapters.RunnerTableAdapter().InsertQuery(Mail.Text, Gender.Text, (DateTime)dateBD.SelectedDate, Country.SelectedValue.ToString());    
-
+                        if (Source.Text == null)
+                        {
+                            new MarathonDemoDataSetTableAdapters.RunnerTableAdapter().InsertQuery(Mail.Text, Gender.Text, (DateTime)dateBD.SelectedDate, Country.SelectedValue.ToString());
+                        }
+                        else
+                        {
+                            new MarathonDemoDataSetTableAdapters.RunnerTableAdapter().Insert(Mail.Text, Gender.Text, (DateTime)dateBD.SelectedDate, Country.SelectedValue.ToString(), Source.Text);
+                        }
                         MessageBox.Show("Выполнено! Для входа авторизируйтесь.");
                     }
                     else
@@ -65,6 +75,19 @@ namespace MSDemo
             Country.ItemsSource = new MarathonDemoDataSetTableAdapters.CountryTableAdapter().GetData();
             Country.DisplayMemberPath = "CountryName";
             Country.SelectedValuePath = "CountryCode";
+        }
+
+        
+        private void SelImg_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog d = new OpenFileDialog();
+            d.Filter = "Image files(*.BMP;*.JPG;*.PNG|*.BMP;*.JPG;*.PNG|All files (*.*)|*.*";
+            if (d.ShowDialog() == true)
+            {
+                arr = File.ReadAllBytes(d.FileName);
+                Photo.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(arr);
+                Source.Text = d.FileName;
+            }
         }
 
         

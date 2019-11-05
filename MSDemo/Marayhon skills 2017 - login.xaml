@@ -32,7 +32,7 @@
         <TextBox Name="TB0" Grid.Row="2" Grid.ColumnSpan="2" Margin="307,41,151,36"/>
         <TextBox Name="TB1" Grid.Row="3" Grid.ColumnSpan="2" Margin="307,41,151,36"/>
 
-        <Button Content="Login" Margin="269,30,18,126" Grid.Row="4" Name="BT0" FontFamily="Arial" FontSize="20"/>
+        <Button Content="Login" Margin="269,30,18,126" Grid.Row="4" Name="BT0" FontFamily="Arial" FontSize="20" Click="BT0_Click" />
         <Button Content="Cancel" Margin="18,30,269,126" Grid.Row="4" Grid.Column="1" Name="BT1" FontFamily="Arial" FontSize="20"/>
 
         <Rectangle  Grid.Row="6" Grid.ColumnSpan="2" Fill="Gray"/>

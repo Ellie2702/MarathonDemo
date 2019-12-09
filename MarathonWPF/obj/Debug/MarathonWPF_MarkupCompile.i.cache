@@ -1,0 +1,20 @@
+﻿MarathonWPF
+
+
+winexe
+C#
+.cs
+C:\Users\admin\Desktop\Marathon\MarathonWPF\obj\Debug\
+MarathonWPF
+none
+false
+DEBUG;TRACE
+C:\Users\admin\Desktop\Marathon\MarathonWPF\App.xaml
+221587083823
+
+311047735347
+17956782100
+ProfileControl\AuthWindow.xaml;Menus\MenuDetails.xaml;ProfileControl\EditProfile.xaml;UserControls\Fond.xaml;HowLongM.xaml;InteractiveMap.xaml;ListFonds.xaml;ProfileControl\Login.xaml;MainWindow.xaml;MarathonInfo.xaml;Menus\MenuAdmin.xaml;Menus\MenuCoordinator.xaml;Menus\MenuRunner.xaml;MyResults.xaml;MySponsors.xaml;RecentRunResults.xaml;ProfileControl\Register.xaml;RegisterOnMarathon.xaml;Simple Styles.xaml;SponsorRunner.xaml;Thanks\ThanksForRegistrationRunner.xaml;Thanks\ThanksSponsorSupport.xaml;
+
+True
+
